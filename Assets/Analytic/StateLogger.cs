@@ -6,12 +6,12 @@ using UnityEngine.Networking;
 public class StateLogger : SimpleLogger
 {
 
-    public string state = "Startting";
-    public string LastValidState = "Startting";
-    public string demiState = "nothing";
-    public string demiStateTime = "nothing";
-    bool isDemiStating = false;
-    bool stateChanged = false;
+    private string state = "Startting";
+    private string LastValidState = "Startting";
+    private string demiState = "nothing";
+    private string demiStateTime = "nothing";
+    private bool isDemiStating = false;
+    private bool stateChanged = false;
 
     void Update()
     {

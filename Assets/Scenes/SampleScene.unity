@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 1911458729}
   - component: {fileID: 1911458728}
   - component: {fileID: 1911458727}
+  - component: {fileID: 1911458732}
   m_Layer: 0
   m_Name: Analytics
   m_TagString: Untagged
@@ -331,9 +332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ApiEndpoint: /picture
-  ImageWidth: 0
-  ImageHeight: 0
-  CaptureInterval: 0
+  ImageWidth: 400
+  ImageHeight: 300
+  CaptureInterval: 15
 --- !u!114 &1911458728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,10 +376,10 @@ MonoBehaviour:
   ApiURL: https://playeranalytics-4sca4i9ri.now.sh/api
   User: alisson
   IsDebugging: 1
-  TakePictures: 0
+  TakePictures: 1
   KeyLogger: 1
-  MouseLogger: 0
-  StateLogger: 0
+  MouseLogger: 1
+  StateLogger: 1
 --- !u!4 &1911458731
 Transform:
   m_ObjectHideFlags: 0
@@ -393,3 +394,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1911458732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911458726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b33790beab5011847ad26e7005cb3bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ApiEndpoint: /event
