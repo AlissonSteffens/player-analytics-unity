@@ -6,29 +6,27 @@ using UnityEngine.Networking;
 public class StateLogger : SimpleLogger
 {
 
-    private string state = "Startting";
-    private string LastValidState = "Startting";
-    private string demiState = "nothing";
-    private string demiStateTime = "nothing";
-    private bool isDemiStating = false;
+    private string playerState = "Starting";
+    private string lastValidPlayerState = "Starting";
+    private string state = "State";
+    private string lastState = "State";
     private bool stateChanged = false;
+
 
     void Update()
     {
         if (doStateLogger)
         {
-            if (stateChanged)
+            playerState = stateAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+            if(!playerState.Equals(lastValidPlayerState))
             {
-                string coroutineValues = "state," + state;
+                string coroutineValues = "player-state," + playerState;
                 StartCoroutine(Upload(coroutineValues));
-                stateChanged = false;
-                LastValidState = state;
+                lastValidPlayerState = playerState;
             }
         }
 
     }
-
-  
 
     public void changeState(string newState)
     {
@@ -39,8 +37,9 @@ public class StateLogger : SimpleLogger
                 state = newState;
                 stateChanged = true;
             }
-            
+
         }
-        
+
     }
+
 }

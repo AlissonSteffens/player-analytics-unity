@@ -5,10 +5,17 @@ using UnityEngine;
 public class Analytic : MonoBehaviour
 {
     [Header("API Settings")]
-    public string ApiURL;
     public string User;
+    public string Game;
+    public string ApiURL;
+    public string ApiKey;
+
+    [Header("Game Objects")]
+    public Animator Character;
+
     [Header("Debbug Settings")]
     public bool IsDebugging;
+
     [Header("Loggin Settings")]
     public bool TakePictures;
     public bool KeyLogger;

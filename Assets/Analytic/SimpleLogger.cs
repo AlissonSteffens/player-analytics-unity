@@ -8,11 +8,13 @@ public class SimpleLogger : MonoBehaviour
     public string ApiEndpoint;
     protected string apiURL;
     protected string user;
+    protected string game;
     protected bool isDebugging;
     protected bool takePictures;
     protected bool doKeyLogger;
     protected bool doMouseLogger;
     protected bool doStateLogger;
+    protected Animator stateAnimator;
 
     // Start is called before the first frame update
     protected void Start()
@@ -25,6 +27,8 @@ public class SimpleLogger : MonoBehaviour
         doKeyLogger = analytic.KeyLogger;
         doMouseLogger = analytic.MouseLogger;
         doStateLogger = analytic.StateLogger;
+        game = analytic.Game;
+        stateAnimator = analytic.Character;
     }
 
     protected IEnumerator Upload(string values)
@@ -42,6 +46,7 @@ public class SimpleLogger : MonoBehaviour
         string[] data = values.Split(',');
         WWWForm json = new WWWForm();
         json.AddField("user", user);
+        json.AddField("game", game);
         json.AddField("category", data[0]);
         json.AddField("action", data[1]);
         if (data.Length >= 3)
