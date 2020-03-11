@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2385663599071545146}
   - component: {fileID: 2385663599071545141}
   - component: {fileID: 2385663599071545150}
+  - component: {fileID: 1761713210}
   m_Layer: 0
   m_Name: Analytics
   m_TagString: Untagged
@@ -51,11 +52,14 @@ MonoBehaviour:
   Game: testiro
   ApiURL: https://playeranalytics-4sca4i9ri.now.sh/api
   ApiKey: xxx
+  Character: {fileID: 0}
+  DialogController: {fileID: 0}
   IsDebugging: 1
   TakePictures: 0
-  KeyLogger: 1
+  KeyLogger: 0
   MouseLogger: 0
   StateLogger: 0
+  FlowLogger: 1
 --- !u!114 &2385663599071545147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +112,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b33790beab5011847ad26e7005cb3bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ApiEndpoint: /event
+  AutoTrackPlayerStates: 0
+  AutoTrackDialogController: 0
+--- !u!114 &1761713210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2385663599071545140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1e14dba09eb60478de414102bbea09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ApiEndpoint: /event

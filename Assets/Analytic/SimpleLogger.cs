@@ -14,7 +14,9 @@ public class SimpleLogger : MonoBehaviour
     protected bool doKeyLogger;
     protected bool doMouseLogger;
     protected bool doStateLogger;
+    protected bool doFlowLogger;
     protected Animator stateAnimator;
+    protected Animator dialogController;
 
     // Start is called before the first frame update
     protected void Start()
@@ -29,6 +31,8 @@ public class SimpleLogger : MonoBehaviour
         doStateLogger = analytic.StateLogger;
         game = analytic.Game;
         stateAnimator = analytic.Character;
+        dialogController = analytic.DialogController;
+        doFlowLogger = analytic.FlowLogger;
     }
 
     protected IEnumerator Upload(string values)

@@ -12,6 +12,7 @@ public class Analytic : MonoBehaviour
 
     [Header("Game Objects")]
     public Animator Character;
+    public Animator DialogController;
 
     [Header("Debbug Settings")]
     public bool IsDebugging;
@@ -21,6 +22,7 @@ public class Analytic : MonoBehaviour
     public bool KeyLogger;
     public bool MouseLogger;
     public bool StateLogger;
+    public bool FlowLogger;
 
 
     //public string ApiURL = "http://player-analytics.now.sh/api/input";

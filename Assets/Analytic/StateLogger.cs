@@ -5,11 +5,14 @@ using UnityEngine.Networking;
 
 public class StateLogger : SimpleLogger
 {
-
+    public bool AutoTrackPlayerStates = true;
+    public bool AutoTrackDialogController = true;
+    private string dialogState = "Starting";
+    private string lastValidDialogState = "Starting";
     private string playerState = "Starting";
     private string lastValidPlayerState = "Starting";
     private string state = "State";
-    private string lastState = "State";
+    private string lastValidState = "State";
     private bool stateChanged = false;
 
 
@@ -17,12 +20,33 @@ public class StateLogger : SimpleLogger
     {
         if (doStateLogger)
         {
-            playerState = stateAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-            if(!playerState.Equals(lastValidPlayerState))
+            if (AutoTrackPlayerStates)
             {
-                string coroutineValues = "player-state," + playerState;
+                playerState = stateAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+                if (!playerState.Equals(lastValidPlayerState))
+                {
+                    string coroutineValues = "player-state," + playerState;
+                    StartCoroutine(Upload(coroutineValues));
+                    lastValidPlayerState = playerState;
+                }
+            }
+
+            if (AutoTrackDialogController)
+            {
+                dialogState = dialogController.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+                if (!dialogState.Equals(lastValidDialogState))
+                {
+                    string coroutineValues = "dialog-state," + dialogState;
+                    StartCoroutine(Upload(coroutineValues));
+                    lastValidDialogState = dialogState;
+                }
+            }
+
+            if (stateChanged)
+            {
+                string coroutineValues = "game-state," + state;
                 StartCoroutine(Upload(coroutineValues));
-                lastValidPlayerState = playerState;
+                lastValidState = state;
             }
         }
 

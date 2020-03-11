@@ -74,7 +74,10 @@ public class PictureTaker : SimpleLogger
     {
         WWWForm json = new WWWForm();
         json.AddField("user", user);
-        json.AddField("image", "data:image/jpeg;base64,"+image);
+        json.AddField("game", game);
+        json.AddField("category", "image");
+        json.AddField("action", "stateChanged");
+        json.AddField("value", "data:image/jpeg;base64,"+image);
         json.AddField("time", System.DateTime.UtcNow.ToString());
 
         UnityWebRequest www = UnityWebRequest.Post(apiURL + ApiEndpoint, json);
