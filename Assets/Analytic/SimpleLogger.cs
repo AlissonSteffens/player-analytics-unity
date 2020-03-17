@@ -17,6 +17,8 @@ public class SimpleLogger : MonoBehaviour
     protected bool doFlowLogger;
     protected Animator stateAnimator;
     protected Animator dialogController;
+    protected SectionController sectionController;
+    protected string section = "";
 
     // Start is called before the first frame update
     protected void Start()
@@ -33,11 +35,12 @@ public class SimpleLogger : MonoBehaviour
         stateAnimator = analytic.Character;
         dialogController = analytic.DialogController;
         doFlowLogger = analytic.FlowLogger;
+        sectionController = new SectionController();
     }
 
     protected IEnumerator Upload(string values)
     {
-        return FullUpload(values, System.DateTime.UtcNow.ToString());
+        return FullUpload(values, System.DateTime.Now.ToString());
     }
 
     protected IEnumerator LateUpload(string values, string time)
@@ -62,6 +65,12 @@ public class SimpleLogger : MonoBehaviour
             json.AddField("value", data[3]);
         }
         json.AddField("time", time);
+
+        if (section.Equals(""))
+        {
+            section = sectionController.GenerateSectionHash(user);
+        }
+        json.AddField("section", section);
 
         UnityWebRequest www = UnityWebRequest.Post(apiURL + ApiEndpoint, json);
         yield return www.SendWebRequest();

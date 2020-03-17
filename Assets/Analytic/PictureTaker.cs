@@ -8,6 +8,7 @@ public class PictureTaker : SimpleLogger
     public int ImageWidth;
     public int ImageHeight;
     public int CaptureInterval;
+    public bool ResetTimerOnActionChange = true;
     WebCamTexture webcamTexture;
     Texture2D texture2D;
     // Start is called before the first frame update
