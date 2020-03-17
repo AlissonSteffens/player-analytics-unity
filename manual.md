@@ -21,12 +21,12 @@ Este componente tem como principal função capturar todas as teclas pressionada
 
 ```json
 {
-_id: "5e5e9d7512884300084b3b49",
-user: "alisson",
-game: "o-jogo",
-category: "key",
-action: "W",
-time: "03/03/2020 18:09:57"
+"_id": "5e5e9d7512884300084b3b49",
+"user": "alisson",
+"game": "o-jogo",
+"category": "key",
+"action": "W",
+"time": "03/03/2020 18:09:57"
 }
 ```
 
@@ -36,13 +36,13 @@ Este componente tem como principal função capturar todas as ações de mouse e
 
 ```json
 {
-_id: "5e5e8f29e38e2100083af389",
-user: "alisson",
-game: "o-jogo",
-category: "mouse",
-action: "Mouse0",
-value: "450;300",
-time: "03/03/2020 17:09:57"
+"_id": "5e5e8f29e38e2100083af389",
+"user": "alisson",
+"game": "o-jogo",
+"category": "mouse",
+"action": "Mouse0",
+"value": "450;300",
+"time": "03/03/2020 17:09:57"
 }
 ```
 ## Picture Taker
@@ -51,13 +51,13 @@ Este componente é responsável por realizar capturas de imagens da webcam do jo
 
 ```json
 {
-_id: " 5e5fad1b020b270008288366",
-user: "alisson",
-game: "o-jogo",
-category: "image",
-action: "stateChanged",
-value: "data:image/jpeg;base64,........",
-time: "03/03/2020 17:09:57"
+"_id": "5e5fad1b020b270008288366",
+"user": "alisson",
+"game": "o-jogo",
+"category": "image",
+"action": "stateChanged",
+"value": "data:image/jpeg;base64,........",
+"time": "03/03/2020 17:09:57"
 }
 ```
 
@@ -71,12 +71,12 @@ Os estados do jogador no jogo podem ser informados à ferramenta de duas maneira
 
 ```json
 {
-_id: "5e5face436b85d0007981715",
-user: "alisson",
-game: "o-jogo",
-category: "state",
-action: "Iddle",
-time: "04/03/2020 13:28:06"
+"_id": "5e5face436b85d0007981715",
+"user": "alisson",
+"game": "o-jogo",
+"category": "state",
+"action": "Iddle",
+"time": "04/03/2020 13:28:06"
 }
 ```
 
@@ -84,24 +84,24 @@ time: "04/03/2020 13:28:06"
 
 O rastreamento de estados do personagem pode ser feito de maneira automática com base em seu Animator. Para isso, o desenvolvedor precisa apenas inserir o prefab do personagem jogável no campo Personagem do componente Analytic. Este objeto é o responsável por controlar a máquina de estados de animações de personagem na Unity.
 
-##	Flow Logger
+## Flow Logger
 
 Este componente é responsável por rastrear o comportamento do jogador no jogo. A intenção é compreender melhor o fluxo de cada jogar enquanto joga. Para isso, não foi possível desenvolver uma maneira automatizada, visto que cada jogo tem seus objetivos e pontos principais.
 	
 O rastreio é feito então por meio de chamadas. A fim de facilitar a utilização por parte dos desenvolvedores, estas chamadas foram projetadas de maneira a poder ser chamadas por meio do sistema de gatilhos e colisores da Unity. A Figura abaixo demonstra como funciona a definição de uma nova ação no fluxo de jogo na programação.
 
 
-![]("docs/trigger.png")
+![](docs/trigger.png)
 
 Ao adicionar um gatilho para a colisão com a plataforma de acionamento, é possível passar o valor do novo estado de fluxo do jogo. A informação desta nova etapa no jogo é enviada para API por meio de uma requisição.
 
 
 ```json
 {
-_id: "5e6010d955c93c000817216f",
-user: "alisson",
-game: "o-jogo",
-category: "OpenSmallDoor",
-time: "04/03/2020 20:34:34"
+"_id": "5e6010d955c93c000817216f",
+"user": "alisson",
+"game": "o-jogo",
+"category": "OpenSmallDoor",
+"time": "04/03/2020 20:34:34"
 }
 ```
