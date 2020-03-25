@@ -44,31 +44,25 @@ public class PictureTaker : SimpleLogger
                 }
             }
             webcamTexture.Play();
-            StartCoroutine("Capture");
         }
     }
 
-    private IEnumerator Capture()
+    public void TakePicture()
     {
-        while (true)
+        Color[] pixels = webcamTexture.GetPixels();
+        if (pixels.Length != 0)
         {
-
-            yield return new WaitForSeconds(CaptureInterval);
-
-            Color[] pixels = webcamTexture.GetPixels();
-            if (pixels.Length == 0)
-                yield return null;
             if (texture2D == null || webcamTexture.width != texture2D.width || webcamTexture.height != texture2D.height)
             {
                 texture2D = new Texture2D(webcamTexture.width, webcamTexture.height, TextureFormat.RGBA32, false);
             }
 
             texture2D.SetPixels(pixels);
-            // texture2D.Apply(false); // Not required. Because we do not need to be uploaded it to GPU
             byte[] jpg = texture2D.EncodeToJPG();
             string base64 = System.Convert.ToBase64String(jpg);
             StartCoroutine(Upload(base64));
         }
+        
     }
 
     IEnumerator Upload(string image)

@@ -9,19 +9,20 @@ public class MouseLogger : SimpleLogger
     // Update is called once per frame
     void Update()
     {
+       
+    }
+
+    public void MouseClick(string button)
+    {
+        MouseClick("menu", button);
+    }
+
+    public void MouseClick(string action, string button)
+    {
         if (doMouseLogger)
         {
-            foreach (KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
-            {
-                if (Input.GetKeyDown(vKey))
-                {
-                    if (vKey.ToString().Contains("Mouse"))
-                    {
-                        string coroutineValues = "mouse," + vKey.ToString() + ",click," + Input.mousePosition.x + ";" + Input.mousePosition.y;
-                        StartCoroutine(Upload(coroutineValues));
-                    }
-                }
-            }
+            string coroutineValues = "mouse," + action + ",click," + button;
+            StartCoroutine(Upload(coroutineValues));
         }
     }
 }
