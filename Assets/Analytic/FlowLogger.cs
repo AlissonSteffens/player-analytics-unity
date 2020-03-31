@@ -9,9 +9,15 @@ public class FlowLogger : SimpleLogger
     {
         if (doFlowLogger)
         {
+            if (takePictures)
+            {
+                GameObject.FindObjectOfType<PictureTaker>().TakePicture("flowChange");
+            }
             action = newAction;
             string coroutineValues = "gameflow," + action;
             StartCoroutine(Upload(coroutineValues));
+            
+            
         }
 
     }

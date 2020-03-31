@@ -40,17 +40,23 @@ public class SimpleLogger : MonoBehaviour
 
     protected IEnumerator Upload(string values)
     {
-        return FullUpload(values, System.DateTime.Now.ToString());
-    }
-
-    protected IEnumerator LateUpload(string values, string time)
-    {
-        return FullUpload(values,time);
-    }
-
-    protected IEnumerator FullUpload(string values,string time)
-    {
         string[] data = values.Split(',');
+        return FullUpload(data, System.DateTime.Now.ToString());
+    }
+
+    protected IEnumerator UploadImage(string action, string image)
+    {
+        string[] data = new string[4];
+        data[0] = "image";
+        data[1] = action;
+        data[2] = "b64";
+        data[3] = "data:image/jpeg;base64,"+image;
+        return FullUpload(data, System.DateTime.Now.ToString());
+    }
+
+    protected IEnumerator FullUpload(string[] data,string time)
+    {
+        
         WWWForm json = new WWWForm();
         json.AddField("user", user);
         json.AddField("game", game);

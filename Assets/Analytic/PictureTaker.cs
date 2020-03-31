@@ -7,8 +7,7 @@ public class PictureTaker : SimpleLogger
 {
     public int ImageWidth;
     public int ImageHeight;
-    public int CaptureInterval;
-    public bool ResetTimerOnActionChange = true;
+    
     WebCamTexture webcamTexture;
     Texture2D texture2D;
     // Start is called before the first frame update
@@ -18,6 +17,7 @@ public class PictureTaker : SimpleLogger
 
         if(takePictures)
         {
+            Debug.Log("iniciando camera");
             StartWebCamCapture();
         }
         
@@ -47,7 +47,7 @@ public class PictureTaker : SimpleLogger
         }
     }
 
-    public void TakePicture()
+    public void TakePicture(string action)
     {
         Color[] pixels = webcamTexture.GetPixels();
         if (pixels.Length != 0)
@@ -60,33 +60,10 @@ public class PictureTaker : SimpleLogger
             texture2D.SetPixels(pixels);
             byte[] jpg = texture2D.EncodeToJPG();
             string base64 = System.Convert.ToBase64String(jpg);
-            StartCoroutine(Upload(base64));
+
+            StartCoroutine(UploadImage(action, base64));
         }
         
     }
 
-    IEnumerator Upload(string image)
-    {
-        WWWForm json = new WWWForm();
-        json.AddField("user", user);
-        json.AddField("game", game);
-        json.AddField("category", "image");
-        json.AddField("action", "stateChanged");
-        json.AddField("value", "data:image/jpeg;base64,"+image);
-        json.AddField("time", System.DateTime.UtcNow.ToString());
-
-        UnityWebRequest www = UnityWebRequest.Post(apiURL + ApiEndpoint, json);
-        yield return www.SendWebRequest();
-
-        if (www.isNetworkError || www.isHttpError)
-        {
-            Debug.Log(www.error);
-            Debug.Log(www.downloadHandler.text);
-        }
-        else
-        {
-            if (isDebugging)
-                Debug.Log("enviou foto");
-        }
-    }
 }

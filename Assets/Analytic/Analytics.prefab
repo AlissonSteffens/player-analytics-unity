@@ -50,14 +50,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   User: alisson
   Game: testiro
-  ApiURL: https://playeranalytics-4sca4i9ri.now.sh/api
+  ApiURL: https://playeranalytics-silly-barracuda-76.now.sh/api
   ApiKey: xxx
   Character: {fileID: 0}
   DialogController: {fileID: 0}
   IsDebugging: 1
-  TakePictures: 0
+  TakePictures: 1
   KeyLogger: 0
-  MouseLogger: 0
+  MouseLogger: 1
   StateLogger: 0
   FlowLogger: 1
 --- !u!114 &2385663599071545147
@@ -102,6 +102,7 @@ MonoBehaviour:
   ImageWidth: 400
   ImageHeight: 300
   CaptureInterval: 15
+  ResetTimerOnActionChange: 1
 --- !u!114 &2385663599071545150
 MonoBehaviour:
   m_ObjectHideFlags: 0

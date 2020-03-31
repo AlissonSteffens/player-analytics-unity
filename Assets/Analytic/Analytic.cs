@@ -25,8 +25,6 @@ public class Analytic : MonoBehaviour
     public bool FlowLogger;
 
 
-    //public string ApiURL = "http://player-analytics.now.sh/api/input";
-
     // Start is called before the first frame update
     void Start()
     {
