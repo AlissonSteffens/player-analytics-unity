@@ -309,6 +309,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Analytics
       objectReference: {fileID: 0}
+    - target: {fileID: 2385663599071545141, guid: c21e693ae63f32047ab3670885142902, type: 3}
+      propertyPath: ApiEndpoint
+      value: /event
+      objectReference: {fileID: 0}
+    - target: {fileID: 2385663599071545144, guid: c21e693ae63f32047ab3670885142902, type: 3}
+      propertyPath: ApiURL
+      value: https://playeranalytics.now.sh/api
+      objectReference: {fileID: 0}
     - target: {fileID: 2385663599071545145, guid: c21e693ae63f32047ab3670885142902, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
