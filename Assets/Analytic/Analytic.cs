@@ -20,6 +20,7 @@ public class Analytic : MonoBehaviour
     [Header("Loggin Settings")]
     public bool TakePictures;
     public bool KeyLogger;
+    public bool ScoreLogger;
     public bool MouseLogger;
     public bool StateLogger;
     public bool FlowLogger;

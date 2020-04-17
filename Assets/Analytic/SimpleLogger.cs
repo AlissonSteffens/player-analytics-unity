@@ -13,6 +13,7 @@ public class SimpleLogger : MonoBehaviour
     protected bool takePictures;
     protected bool doKeyLogger;
     protected bool doMouseLogger;
+    protected bool doScoreLogger;
     protected bool doStateLogger;
     protected bool doFlowLogger;
     protected Animator stateAnimator;
@@ -29,6 +30,7 @@ public class SimpleLogger : MonoBehaviour
         isDebugging = analytic.IsDebugging;
         takePictures = analytic.TakePictures;
         doKeyLogger = analytic.KeyLogger;
+        doScoreLogger = analytic.ScoreLogger;
         doMouseLogger = analytic.MouseLogger;
         doStateLogger = analytic.StateLogger;
         game = analytic.Game;
