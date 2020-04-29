@@ -16,8 +16,6 @@ public class FlowLogger : SimpleLogger
             action = newAction;
             string coroutineValues = "gameflow," + action;
             StartCoroutine(Upload(coroutineValues));
-            
-            
         }
 
     }

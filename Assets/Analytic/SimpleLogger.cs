@@ -62,6 +62,7 @@ public class SimpleLogger : MonoBehaviour
         WWWForm json = new WWWForm();
         json.AddField("user", user);
         json.AddField("game", game);
+        json.AddField("platform", Application.platform.ToString());
         json.AddField("category", data[0]);
         json.AddField("action", data[1]);
         if (data.Length >= 3)
