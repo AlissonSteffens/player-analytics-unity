@@ -5,18 +5,18 @@ using UnityEngine;
 public class ScoreLogger : SimpleLogger
 {
 
-    string level = "1";
+    string label = "1";
 
-    public void setLevel(string level)
+    public void setLabel(string label)
     {
-        this.level = level;
+        this.label = label;
     }
 
     public void setScore(string score)
     {
         if (doScoreLogger)
         {
-            string coroutineValues = "score,died,"+level+","+ score;
+            string coroutineValues = "score,died,"+ label + ","+ score;
             StartCoroutine(Upload(coroutineValues));
 
         }
