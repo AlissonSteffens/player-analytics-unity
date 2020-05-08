@@ -49,14 +49,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   User: alisson
-  Game: testiro
-  ApiURL: https://playeranalytics-silly-barracuda-76.now.sh/api
+  Game: puzzle3dtest
+  ApiURL: https://playeranalytics.now.sh/api
   ApiKey: xxx
   Character: {fileID: 0}
   DialogController: {fileID: 0}
   IsDebugging: 1
-  TakePictures: 1
+  TakePictures: 0
   KeyLogger: 0
+  ScoreLogger: 1
   MouseLogger: 1
   StateLogger: 0
   FlowLogger: 1
@@ -86,6 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ApiEndpoint: /event
+  AutoTrack: 0
 --- !u!114 &2385663599071545141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,8 +103,6 @@ MonoBehaviour:
   ApiEndpoint: /picture
   ImageWidth: 400
   ImageHeight: 300
-  CaptureInterval: 15
-  ResetTimerOnActionChange: 1
 --- !u!114 &2385663599071545150
 MonoBehaviour:
   m_ObjectHideFlags: 0

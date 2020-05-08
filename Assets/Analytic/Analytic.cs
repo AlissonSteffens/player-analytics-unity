@@ -17,6 +17,10 @@ public class Analytic : MonoBehaviour
     [Header("Debbug Settings")]
     public bool IsDebugging;
 
+
+    [Header("Backup Settings")]
+    public bool DoBackup;
+
     [Header("Loggin Settings")]
     public bool TakePictures;
     public bool KeyLogger;
@@ -35,6 +39,9 @@ public class Analytic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (PlayerPrefs.HasKey("UserName"))
+        {
+            User = PlayerPrefs.GetString("UserName");
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -20,7 +21,9 @@ public class SimpleLogger : MonoBehaviour
     protected Animator dialogController;
     protected SectionController sectionController;
     protected string section = "";
+    protected bool backup;
 
+    private string dados = "";
     // Start is called before the first frame update
     protected void Start()
     {
@@ -37,6 +40,7 @@ public class SimpleLogger : MonoBehaviour
         stateAnimator = analytic.Character;
         dialogController = analytic.DialogController;
         doFlowLogger = analytic.FlowLogger;
+        backup = analytic.DoBackup;
         sectionController = new SectionController();
     }
 
@@ -80,6 +84,13 @@ public class SimpleLogger : MonoBehaviour
             section = sectionController.GenerateSectionHash(user);
         }
         json.AddField("section", section);
+
+        if (backup)
+        {
+            dados = user + "," + game + "," + Application.platform.ToString() + "," + data[0] + "," + data[1] + "," + (data.Length >= 3 ? data[2] : "NaN") + "," + (data.Length >= 4 ? data[3] : "NaN") + "," + time + "," + section+"\n";
+            File.AppendAllText("backup.dat", dados);
+        }
+        
 
         UnityWebRequest www = UnityWebRequest.Post(apiURL + ApiEndpoint, json);
         yield return www.SendWebRequest();
