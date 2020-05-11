@@ -31,17 +31,21 @@ public class Analytic : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
         if (PlayerPrefs.HasKey("UserName"))
         {
             User = PlayerPrefs.GetString("UserName");
         }
+            
+
+        if (PlayerPrefs.HasKey("EnableCam"))
+            TakePictures = TakePictures && (PlayerPrefs.GetInt("EnableCam") == 1);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

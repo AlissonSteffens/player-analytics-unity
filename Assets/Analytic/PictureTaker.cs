@@ -46,6 +46,17 @@ public class PictureTaker : SimpleLogger
             webcamTexture.Play();
         }
     }
+    void OnDestroy()
+    {
+        if (takePictures)
+        {
+            webcamTexture.Stop();
+        }
+    }
+    public void StopWebCamCapture()
+    {
+        webcamTexture.Stop();
+    }
 
     public void TakePicture(string action)
     {
@@ -65,5 +76,6 @@ public class PictureTaker : SimpleLogger
         }
         
     }
+
 
 }
